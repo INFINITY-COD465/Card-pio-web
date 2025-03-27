@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmação do Pedido</title>
+    <link rel="stylesheet" href="confirmacao.css" />
+  </head>
+  <body>
+    <div>
+      <a href="home.html">Home</a>
+    </div>
+    <div class="container">
+      <h1>Me fale seu endereço</h1>
+      <form id="formulario-pedido" onsubmit="enviarPedido(event)">
+        <div class="form-group">
+          <label for="nome-completo">Nome Completo:</label>
+          <input type="text" id="nome-completo" name="nome-completo" required />
+        </div>
+        <div class="form-group">
+          <label for="numero">Número:</label>
+          <input
+            type="tel"
+            id="numero-telefone"
+            name="numero-telefone"
+            pattern="[0-9]{11}"
+            placeholder="11999999999"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="endereco">Endereço:</label>
+          <input type="text" id="endereco" name="endereco" required />
+        </div>
+        <div class="form-group">
+          <label for="cep">CEP:</label>
+          <input type="text" id="cep" name="cep" required />
+        </div>
+        <div class="form-group">
+          <label for="complemento">Complemento:</label>
+          <input type="text" id="complemento" name="complemento" />
+        </div>
+        <div class="form-group">
+          <label for="forma-pagamento">Forma de Pagamento:</label>
+          <select id="forma-pagamento" name="forma-pagamento" required>
+            <option value="">Selecione uma opção</option>
+            <option value="cartao">Cartão</option>
+            <option value="dinheiro">Dinheiro</option>
+          </select>
+        </div>
+        <button type="submit">Finalizar Pedido</button>
+      </form>
+      <div id="pedido-resumo">
+        <h2>Resumo do Pedido:</h2>
+        <ul id="pedido-itens"></ul>
+        <p id="pedido-total"></p>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+  <script src="confirmacao.js"></script>
+</html>
